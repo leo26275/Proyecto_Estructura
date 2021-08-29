@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b02dd50e-d887-4b6a-9b2b-3b726e35067c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="tbl" uuid="e9d2018e-b48b-4f99-a28c-124526e17aa5">
+		<queryString language="SQL">
+			<![CDATA[SELECT a.movimiento, a.cantidad_e, a.costou_e, a.costoi_e, a.cantidad_s, a.costou_s, a.costoi_s, a.cantidad_f, a.costou_f, a.costoi_f, a.idcompra FROM kardex AS a]]>
+		</queryString>
+		<field name="movimiento" class="java.lang.String"/>
+		<field name="cantidad_e" class="java.lang.Integer"/>
+		<field name="costou_e" class="java.math.BigDecimal"/>
+		<field name="costoi_e" class="java.math.BigDecimal"/>
+		<field name="cantidad_s" class="java.lang.Integer"/>
+		<field name="costou_s" class="java.math.BigDecimal"/>
+		<field name="costoi_s" class="java.math.BigDecimal"/>
+		<field name="cantidad_f" class="java.lang.Integer"/>
+		<field name="costou_f" class="java.math.BigDecimal"/>
+		<field name="costoi_f" class="java.math.BigDecimal"/>
+		<field name="idcompra" class="java.lang.Integer"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT 1 AS DUMMY]]>
+	</queryString>
+	<field name="dummy" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="222" y="0" width="354" height="60" backcolor="#9999FF" uuid="f488df29-634d-4da6-babe-d418b7de4b96"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="270" y="0" width="233" height="41" uuid="a33f5078-a78d-4a76-b5fd-34f5c8c34dbb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Kardex]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="0" y="0" width="802" height="125" uuid="927b46de-e5ce-46ee-96d4-695c6e9ec5f7"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="tbl" uuid="261b491a-23cc-4424-a087-948ef9b53fb3">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="293fb09f-c73a-49bc-a5f8-47e1546e14fb">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="e6bce9ef-fa27-4c30-b79b-a7e4c85c4685"/>
+								<text><![CDATA[movimiento]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="aa32dcba-20b7-4623-90ee-eda217ce5966"/>
+								<textFieldExpression><![CDATA[$F{movimiento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="fb4466db-4871-45a9-a4f1-dd5a96c0b3bd">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="ccadf583-59dd-48d1-a947-15a38ab3a217"/>
+								<text><![CDATA[cantidad_e]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="69a48d9a-f8ca-4cef-86b5-8fe872a76976"/>
+								<textFieldExpression><![CDATA[$F{cantidad_e}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="8f7376f3-2b90-43bd-8800-6bacf58ad6c3">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="4a65ed99-ce49-47ab-88be-8f515909f3ff"/>
+								<text><![CDATA[costou_e]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="39988b5b-a873-44e5-888e-4dad6787c3a9"/>
+								<textFieldExpression><![CDATA[$F{costou_e}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="0873f461-a149-4b5a-a0ef-6d50f121fdf4">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="e3c9ea06-ff16-49e1-a76d-d5f50e519794"/>
+								<text><![CDATA[costoi_e]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="94ff4e13-2028-4b9a-9349-f3b5052218da"/>
+								<textFieldExpression><![CDATA[$F{costoi_e}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="68ce15a7-fe9a-44b0-a9e5-02613bdb477e">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="ea998294-5a76-4151-8534-7ec7936cfa2d"/>
+								<text><![CDATA[cantidad_s]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="fa564411-116a-46a8-857b-bc951117f877"/>
+								<textFieldExpression><![CDATA[$F{cantidad_s}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d61bc8c0-b90c-42ca-8e3c-14840f6cbc71">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="86cfefd1-4960-4123-a081-22eadf46456d"/>
+								<text><![CDATA[costou_s]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="358d5821-0206-4c31-b351-1189abfc8a74"/>
+								<textFieldExpression><![CDATA[$F{costou_s}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c2cdfc4c-768b-468c-befc-dee9a45d41b5">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="4e22d2a9-840d-4e83-9bae-0697d87ab437"/>
+								<text><![CDATA[costoi_s]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="ed9608db-6db1-4331-b525-dfed10a374a5"/>
+								<textFieldExpression><![CDATA[$F{costoi_s}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="88fc0986-7bca-47a2-b73b-f2dd30e2a7e9">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="33766792-04b8-46da-908d-0cf7f6884fe9"/>
+								<text><![CDATA[cantidad_f]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="933538e2-4ee8-44b2-b3f4-7290f8f35e03"/>
+								<textFieldExpression><![CDATA[$F{cantidad_f}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="13bbae05-2a86-4061-9813-f2fbf753be78">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="539e78ed-dc6c-4d8a-b38a-449ca2db14aa"/>
+								<text><![CDATA[costou_f]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="d07852c7-c434-4a5d-a51e-7c9967c72fb5"/>
+								<textFieldExpression><![CDATA[$F{costou_f}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="077b76c5-a123-4175-8651-49dc5434e965">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="76dd0fbf-744b-493d-842f-0200ce062307"/>
+								<text><![CDATA[costoi_f]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="ff57e6cc-c6e5-46d2-b3b2-5a90b43efca5"/>
+								<textFieldExpression><![CDATA[$F{costoi_f}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="6f23a2c2-5303-44a3-b6cc-a09ae94506c6">
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="618979f8-7763-4262-bdde-c52a2f15e643"/>
+								<text><![CDATA[idcompra]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="0ba183ac-4fe9-4ae7-a271-e2581aeca3e1"/>
+								<textFieldExpression><![CDATA[$F{idcompra}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="57" height="20" uuid="b5b125db-27cf-4b38-bf7d-1cb361ad2ac3"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="14" width="57" height="20" uuid="0cc346df-9c1b-4d4e-a2a0-1888181ce4e9"/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="682" y="14" width="80" height="20" uuid="cd243620-06a1-477c-bf2a-abce57627ba6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement x="413" y="14" width="100" height="20" uuid="592d6c01-bca9-484c-a394-ac35e2299cb4"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="14" width="40" height="20" uuid="8cfea924-8b80-46e1-bc2f-8191a4a760cf"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="53" y="10" width="100" height="20" uuid="76f454a7-e224-430b-ae6c-7db080bef5c8"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
